@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        run: echo ${{ github.sha }} > effects/Release.txt
+        run: echo ${{ github.sha }} > "effects/Release.txt"
       - name: Test
         run: cat effects/Release.txt
       - name: Release
