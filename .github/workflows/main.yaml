@@ -14,17 +14,12 @@ jobs:
           node-version: 12
       - name: Build
         run: |
-         npm i -g electroshot 
-         echo ${{ github.sha }} > effects/Releaser.txt
+         npm i -g electroshot
          electroshot google.com 1024 --filename --out effects\ --filename "screenshot.png"
-      - name: Test
-        run: cat effects/Releaser.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: |
-            effects/Releaser.txt
-            effects/screenshot.png
+          files: effects/screenshot.png
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
