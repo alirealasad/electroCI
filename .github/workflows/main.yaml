@@ -8,14 +8,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: install
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
       - name: Build
         run: echo ${{ github.sha }} > effects/Releaser.txt
+        run: npm ci
+        run: electroshot google.com 1024 --filename --out effects\ --filename "screenshot.png"
       - name: Test
         run: cat effects/Releaser.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: effects/Releaser.txt
+          files: |
+            effects/Releaser.txt
+            effects/screenshot.png
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
