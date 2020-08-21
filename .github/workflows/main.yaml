@@ -14,8 +14,8 @@ jobs:
           node-version: 12
       - name: Build
         run: |
-         echo ${{ github.sha }} > effects/Releaser.txt
          npm ci
+         echo ${{ github.sha }} > effects/Releaser.txt   
          electroshot google.com 1024 --filename --out effects\ --filename "screenshot.png"
       - name: Test
         run: cat effects/Releaser.txt
