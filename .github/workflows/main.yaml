@@ -13,9 +13,10 @@ jobs:
         with:
           node-version: 12
       - name: Build
-        run: echo ${{ github.sha }} > effects/Releaser.txt
-        run: npm ci
-        run: electroshot google.com 1024 --filename --out effects\ --filename "screenshot.png"
+        run: |
+         echo ${{ github.sha }} > effects/Releaser.txt
+         npm ci
+         electroshot google.com 1024 --filename --out effects\ --filename "screenshot.png"
       - name: Test
         run: cat effects/Releaser.txt
       - name: Release
