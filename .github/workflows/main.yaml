@@ -14,12 +14,12 @@ jobs:
           node-version: 12
       - name: Build
         run: |
-         npm i -g electroshot
-         electroshot google.com 1024 --filename --out effects\ --filename "screenshot.png"
+         npm ci
+         node index.js
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: effects/screenshot.png
+          files: effects/hn.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

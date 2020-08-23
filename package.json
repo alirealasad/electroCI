@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electroshot": "^1.4.0"
+    "puppeteer": "^5.2.1"
   }
 }
