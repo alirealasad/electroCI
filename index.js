@@ -13,7 +13,7 @@ const puppeteer = require('puppeteer');
     await page.setDefaultNavigationTimeout(0);
     await page.goto('https://news.ycombinator.com/',{waitUntil: 'networkidle0'});
     // await page.waitForFunction(imagesHaveLoaded, { timeout: 5000 });
-    await page.pdf({path: 'effects/hn.pdf', format: 'A4'});
+    await page.pdf({path: 'hn.pdf', format: 'A4'});
 
   await browser.close();
 })();
