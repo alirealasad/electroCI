@@ -13,9 +13,10 @@ jobs:
         with:
           node-version: 12
       - name: Build
-        run: |
-         npm ci
-         node index.js
+        run: npm ci
+
+      - name: Build
+        run: node index.js
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
