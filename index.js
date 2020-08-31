@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
     // 'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Safari/537.36';
     // await page.setUserAgent(userAgent);
     await page.setDefaultNavigationTimeout(0);
-    await page.goto('https://news.ycombinator.com/',{waitUntil: 'networkidle0'});
+    await page.goto('https://naughty-bell-138437.netlify.app/#/resume/cool',{waitUntil: 'networkidle0'});
     // await page.waitForFunction(imagesHaveLoaded, { timeout: 5000 });
     await page.pdf({path: 'hn.pdf', format: 'A4'});
 
